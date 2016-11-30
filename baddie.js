@@ -1,7 +1,8 @@
-var Baddie = function(name, faveFood) {
+var Baddie = function(name, faveFood, superpower) {
   this.name = name;
   this.health = -50;
   this.faveFood = faveFood;
+  this.superpower = superpower;
   this.isAlive = true;
   };
 
@@ -19,7 +20,7 @@ var Baddie = function(name, faveFood) {
       },
 
       foodWontPutBaddieUnderMinus1: function(food) {
-        if ((this.health + food.value) < -1)  {
+        if ((this.health + food.value) < 0)  {
           return true;
         } else {
           return false;

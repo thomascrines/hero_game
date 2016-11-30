@@ -79,7 +79,7 @@ describe("Hero", function() {
   });
 
   it('dies if health is 0', function() {
-    baddie1.health = -14;
+    baddie1.health = -22.5;
     baddie1.eat(food2);
     assert.equal(0, baddie1.health);
     assert.equal(false, baddie1.isAlive);
