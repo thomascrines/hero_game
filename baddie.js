@@ -45,6 +45,18 @@ var Baddie = function(name, faveFood, superpower) {
           this.health = 0;
           this.isAlive = false;
         }
+      },
+
+      punch: function(hero) {
+        hero.health -= 5;
+      },
+
+      kick: function(hero) {
+        hero.health -= 10;
+      },
+
+      useSuperpower: function(hero) {
+        hero.health -= this.superpower.strength;
       }
     };
 
