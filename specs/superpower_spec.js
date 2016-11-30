@@ -1,8 +1,6 @@
 var Superpower = require('../superpower');
 var assert = require("assert");
 
-
-
 describe("superpower", function() {
 
   var superpower;

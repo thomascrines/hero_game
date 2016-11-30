@@ -5,8 +5,6 @@ var Rat = require('../rat');
 var Superpower = require('../superpower');
 var assert = require("assert");
 
-
-
 describe("Hero", function() {
 
   var hero1;
