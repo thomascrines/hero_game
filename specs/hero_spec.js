@@ -1,5 +1,6 @@
 var Hero = require('../hero');
 var Food = require('../food');
+var Rat = require('../rat');
 var assert = require("assert");
 
 
@@ -9,11 +10,13 @@ describe("Hero", function() {
   var hero1;
   var food1;
   var food2;
+  var rat1;
 
   beforeEach(function() {
    hero1 = new Hero('Ric Flair', 'Raw Steak');
    food1 = new Food('Raw Steak', 10);
    food2 = new Food('Garlic Bread', 5);
+   rat1 = new Rat('Macho King Randy Savage');
   });
 
   it("should have name", function() {
@@ -39,8 +42,14 @@ describe("Hero", function() {
 
   it("can eat other food and gain health", function() {
     hero1.eat(food2);
-    assert.equal(55
-      , hero1.health);
+    assert.equal(55, hero1.health);
   });
+
+  it('loses health eating poisoned food', function() {
+    rat1.getSick();
+    rat1.contaminate(food1);
+    hero1.eat(food1);
+    assert.equal(35, hero1.health);
+  })
 
 });

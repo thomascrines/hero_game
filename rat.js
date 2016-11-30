@@ -4,8 +4,14 @@ var Rat = function(name) {
 };
 
 Rat.prototype = {
-  contanimate: function(food) {
+  getSick: function() {
+    this.isPoisonous = true;
+  },
+  contaminate: function(food) {
+    if (this.isPoisonous === true) {
     food.poisonous = true;
+    food.value = -food.value;
+  } 
   }
 }
 

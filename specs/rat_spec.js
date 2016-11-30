@@ -15,9 +15,27 @@ describe("Rat", function() {
    rat2 = new Rat('Brutus the Barber Beefcake');
    food1 = new Food('Raw Steak', 10);
    food2 = new Food('Garlic Bread', 5);
-  });
+ });
 
   it("should have name", function() {
     assert.equal('Macho King Randy Savage', rat1.name);
   });
-    });
+
+  it("can become a harbinger of disease", function() {
+    rat1.getSick();
+    assert.equal(true, rat1.isPoisonous);
+  });
+
+  it("food not affected by healthy rat", function() {
+    rat1.contaminate(food1);
+    assert.equal(false, food1.poisonous);
+  });
+
+  it("food affected by sick rat", function() {
+    rat2.getSick();
+    rat2.contaminate(food2);
+    assert.equal(true, food2.poisonous);
+    assert.equal(-5, food2.value);
+  });
+
+});

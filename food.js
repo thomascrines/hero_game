@@ -4,4 +4,5 @@ var Food = function(name, value) {
   this.poisonous = false;
 }
 
+
 module.exports = Food;
