@@ -50,6 +50,40 @@ describe("Hero", function() {
     rat1.contaminate(food1);
     hero1.eat(food1);
     assert.equal(35, hero1.health);
+  });
+
+  it('cant go over 100', function() {
+    hero1.health = 99;
+    assert.equal(false, hero1.foodWontPutHeroOver100(food2));
+  });
+
+  it('cant go under 1', function() {
+    hero1.health = 6;
+    rat1.getSick();
+    rat1.contaminate(food1);
+    assert.equal(false, hero1.foodWontPutHeroUnder1(food1));
+  });
+
+  it('loses health eating poisoned food', function() {
+    rat1.getSick();
+    rat1.contaminate(food1);
+    hero1.eat(food1);
+    assert.equal(35, hero1.health);
+  });
+
+  it('cant go over 100 2', function() {
+    hero1.health = 99;
+    hero1.eat(food1)
+    assert.equal(100, hero1.health);
+  });
+
+  it('dies if health is 0', function() {
+    hero1.health = 14;
+    rat1.getSick();
+    rat1.contaminate(food1);
+    hero1.eat(food1);
+    assert.equal(0, hero1.health);
+    assert.equal(false, hero1.isAlive);
   })
 
 });
