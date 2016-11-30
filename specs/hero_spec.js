@@ -1,6 +1,8 @@
 var Hero = require('../hero');
+var Baddie = require('../baddie');
 var Food = require('../food');
 var Rat = require('../rat');
+var Superpower = require('../superpower');
 var assert = require("assert");
 
 
@@ -8,15 +10,19 @@ var assert = require("assert");
 describe("Hero", function() {
 
   var hero1;
+  var baddie1;
   var food1;
   var food2;
   var rat1;
+  var superpower1;
 
   beforeEach(function() {
-   hero1 = new Hero('Ric Flair', 'Raw Steak');
-   food1 = new Food('Raw Steak', 10);
-   food2 = new Food('Garlic Bread', 5);
-   rat1 = new Rat('Macho King Randy Savage');
+    superpower1 = new Superpower('The Figure Four', 20)
+    hero1 = new Hero('Ric Flair', 'Raw Steak', superpower1);
+    baddie1 = new Baddie('Some Guy', 'Eggs Benedict');
+    food1 = new Food('Raw Steak', 10);
+    food2 = new Food('Garlic Bread', 5);
+    rat1 = new Rat('Macho King Randy Savage');
   });
 
   it("should have name", function() {
@@ -84,6 +90,21 @@ describe("Hero", function() {
     hero1.eat(food1);
     assert.equal(0, hero1.health);
     assert.equal(false, hero1.isAlive);
-  })
+  });
+
+  it('can punch', function() {
+    hero1.punch(baddie1);
+    assert.equal(-45, baddie1.health);
+  });
+
+  it('can kick', function() {
+    hero1.kick(baddie1);
+    assert.equal(-40, baddie1.health);
+  });
+
+  it('can use superpower', function() {
+    hero1.useSuperpower(baddie1);
+    assert.equal(-30, baddie1.health);
+  });
 
 });
