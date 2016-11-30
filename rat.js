@@ -1,6 +1,7 @@
 var Rat = function(name) {
   this.name = name,
-  this.isPoisonous = false
+  this.isPoisonous = false,
+  this.isAlive = true
 };
 
 Rat.prototype = {

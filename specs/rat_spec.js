@@ -9,6 +9,7 @@ describe("Rat", function() {
   var rat2;
   var food1;
   var food2;
+  var food3;
 
   beforeEach(function() {
    rat1 = new Rat('Macho King Randy Savage');
@@ -19,6 +20,14 @@ describe("Rat", function() {
 
   it("should have name", function() {
     assert.equal('Macho King Randy Savage', rat1.name);
+  });
+
+  it("starts not poisonous", function() {
+    assert.equal(false, rat1.isPoisonous);
+  });
+
+  it("starts alive", function() {
+    assert.equal(true, rat1.isAlive);
   });
 
   it("can become a harbinger of disease", function() {

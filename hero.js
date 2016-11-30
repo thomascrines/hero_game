@@ -27,8 +27,14 @@ var Hero = function(name, faveFood) {
       }
     },
 
-    eat: function(food) {
+    faveFoodCheck: function(food) {
       if (food.name === this.faveFood) {
+        return true;
+      }
+    },
+
+    eat: function(food) {
+      if (this.faveFoodCheck(food)) {
         food.value *= 1.5;
       };
       if ((this.foodWontPutHeroOver100(food)) && (this.foodWontPutHeroUnder1(food))) {
